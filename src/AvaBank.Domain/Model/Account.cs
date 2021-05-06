@@ -33,7 +33,7 @@ namespace AvaBank.Domain.Model
 
         public Uri Poster { get; set; }
 
-        public IEnumerable<Rating> Ratings { get; set; }
+        public IEnumerable<Consent> Consents { get; set; }
 
         public string Metascore { get; set; }
 

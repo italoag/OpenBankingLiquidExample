@@ -1,11 +1,11 @@
 using MediatR;
-using OltivaFlix.Domain.Model;
+using AvaBank.Domain.Model;
 using System.Collections.Generic;
 
-namespace OltivaFlix.Domain.Queries
+namespace AvaBank.Domain.Queries
 {
     public class ListMoviesResponse : IRequest
     {
-        public IEnumerable<Movie> Movies { get; set; }
+        public IEnumerable<Account> Accounts { get; set; }
     }
 }
