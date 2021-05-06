@@ -47,10 +47,10 @@ namespace AvaBank.Domain.Handler
         public async Task<Account> Handle(GetAccountQuery request, CancellationToken cancellationToken)
         {
             var result = await _cache.RetrieveOrAddAsync<Account>(
-               key: $"AccountId:{request.ImdbId}",
+               key: $"AccountId:{request.accountId}",
                action: () =>
                {
-                   return _accountService.GetAccount(request.ImdbId).Result;
+                   return _accountService.GetAccount(request.accountId).Result;
                },
                expirationDuration: System.TimeSpan.FromMinutes(_cacheConfig.CacheTTLInMinutes));
 
