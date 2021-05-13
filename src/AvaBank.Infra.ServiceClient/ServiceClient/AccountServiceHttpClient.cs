@@ -37,7 +37,7 @@ namespace AvaBank.Infra.ServiceClient
         {
             Dictionary<string, string> headers = GetHeaders();
 
-            var response = await GetAsync<Account>(endpoint: $"credit-cards-accounts/accounts/{id}", headers);
+            var response = await GetAsync<Account>(endpoint: $"credit-cards-accounts/v1/accounts/{id}", headers);
 
             Account result = null;
 
@@ -54,15 +54,20 @@ namespace AvaBank.Infra.ServiceClient
             var headers = new Dictionary<string, string>();
 
             headers.Add("Ocp-Apim-Subscription-Key", "595c4615262c4ebf9e67e2f527613595");
+            headers.Add("Accept", "application/json");
             headers.Add("Authorization", "0a7546ded89dea65");
+            headers.Add("x-fapi-auth-date", "Sun, 10 Sep 2017 19:43:31 UTC");
+            headers.Add("x-fapi-customer-ip-address", "127.0.0.1");
+            headers.Add("x-fapi-interaction-id", "string");
+            headers.Add("x-customer-user-agent", "string");
             return headers;
         }
 
-        public async Task<IEnumerable<Account>> SearchAccounts(string query)
+        public async Task<IEnumerable<Account>> SearchAccounts()
         {
             Dictionary<string, string> headers = GetHeaders();
             SearchResult result = null;
-            var httpResponse = await GetAsync<SearchResult>($"credit-cards-accounts/v1/accounts/{query}", headers);
+            var httpResponse = await GetAsync<SearchResult>($"credit-cards-accounts/v1/accounts", headers);
 
             if (httpResponse.HttpResponse.IsSuccessStatusCode)
             {

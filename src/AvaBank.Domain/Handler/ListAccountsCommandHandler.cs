@@ -31,7 +31,7 @@ namespace AvaBank.Domain.Handler
 
         public async Task<IEnumerable<Account>> Handle(ListAccountsQuery request, CancellationToken cancellationToken)
         {
-            return  await _accountService.SearchAccounts(request.SearchString);
+            return  await _accountService.SearchAccounts();
         }
     }
 }

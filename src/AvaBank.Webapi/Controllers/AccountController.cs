@@ -27,8 +27,8 @@ namespace AvaBank.Webapi.Controllers
         { } 
 
         [HttpGet()]
-        public async Task<IActionResult> SearchAccounts([FromQuery(Name="nameSearch")] string nameSearch) =>
-            await ExecuteAsync(new ListAccountsQuery() { SearchString = nameSearch });
+        public async Task<IActionResult> SearchAccounts([FromQuery(Name="accountSearch")] string accountSearch) =>
+            await ExecuteAsync(new ListAccountsQuery() { SearchString = accountSearch });
 
         [HttpGet(template: "{id}")]
         public async Task<IActionResult> GetAccount(string id) =>
