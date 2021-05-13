@@ -47,10 +47,10 @@ namespace AvaBank.Domain.Handler
         public async Task<Account> Handle(GetAccountQuery request, CancellationToken cancellationToken)
         {
             var result = await _cache.RetrieveOrAddAsync<Account>(
-               key: $"AccountId:{request.accountId}",
+               key: $"AccountId:{request.AccountId}",
                action: () =>
                {
-                   return _accountService.GetAccount(request.accountId).Result;
+                   return _accountService.GetAccount(request.AccountId).Result;
                },
                expirationDuration: System.TimeSpan.FromMinutes(_cacheConfig.CacheTTLInMinutes));
 
@@ -61,7 +61,7 @@ namespace AvaBank.Domain.Handler
             else
             {
                 await _lightProducer.SendMessageAsync(
-                    message: new AccountAproval { Id = result.ImdbId, AccountName = result.Title },
+                    message: new AccountAproval { Id = result.User, AccountDocument = result.Product },
                     customHeaders: new Dictionary<string, object>());
             }
 

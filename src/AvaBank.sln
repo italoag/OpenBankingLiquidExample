@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaBank.Webapi", "AvaBank.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaBank.Infra.ServiceClient", "AvaBank.Infra.ServiceClient\AvaBank.Infra.ServiceClient.csproj", "{64E4F0E3-0FBA-4FC0-A745-8F45A5F3FB54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaBank.Infra.MessageBroker", "AvaBank.Infra.MessageBroker\AvaBank.Infra.MessageBroker.csproj", "{7A557072-0A64-43A7-95AB-92EC71E8A633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaBank.Infra.MessageBroker", "AvaBank.Infra.MessageBroker\AvaBank.Infra.MessageBroker.csproj", "{7A557072-0A64-43A7-95AB-92EC71E8A633}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

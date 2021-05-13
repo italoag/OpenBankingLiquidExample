@@ -32,6 +32,6 @@ namespace AvaBank.Webapi.Controllers
 
         [HttpGet(template: "{id}")]
         public async Task<IActionResult> GetAccount(string id) =>
-            await ExecuteAsync(new GetAccountQuery() { ImdbId = id });
+            await ExecuteAsync(new GetAccountQuery() { AccountId = id });
     }
 }

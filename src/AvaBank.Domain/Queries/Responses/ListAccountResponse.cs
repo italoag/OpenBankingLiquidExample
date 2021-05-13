@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AvaBank.Domain.Queries
 {
-    public class ListMoviesResponse : IRequest
+    public class ListAccountsResponse : IRequest
     {
         public IEnumerable<Account> Accounts { get; set; }
     }

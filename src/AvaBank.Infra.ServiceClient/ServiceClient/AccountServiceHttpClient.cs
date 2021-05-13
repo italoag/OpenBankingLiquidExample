@@ -35,25 +35,34 @@ namespace AvaBank.Infra.ServiceClient
 
         public async Task<Account> GetAccount(string id)
         {
-            var response = await GetAsync<Account>(endpoint: $"?apikey=2f93d90d&i={id}");
+            Dictionary<string, string> headers = GetHeaders();
+
+            var response = await GetAsync<Account>(endpoint: $"credit-cards-accounts/accounts/{id}", headers);
 
             Account result = null;
 
             if (response.HttpResponse.IsSuccessStatusCode)
             {
                 result = await response.GetContentObjectAsync();
-
-                if (result.Response.ToUpper().Equals(bool.FalseString.ToUpper()))
-                    return null;                
             }
 
             return result;
         }
 
+        private static Dictionary<string, string> GetHeaders()
+        {
+            var headers = new Dictionary<string, string>();
+
+            headers.Add("Ocp-Apim-Subscription-Key", "595c4615262c4ebf9e67e2f527613595");
+            headers.Add("Authorization", "0a7546ded89dea65");
+            return headers;
+        }
+
         public async Task<IEnumerable<Account>> SearchAccounts(string query)
         {
+            Dictionary<string, string> headers = GetHeaders();
             SearchResult result = null;
-            var httpResponse = await GetAsync<SearchResult>($"?apikey=2f93d90d&s={query}");
+            var httpResponse = await GetAsync<SearchResult>($"credit-cards-accounts/v1/accounts/{query}", headers);
 
             if (httpResponse.HttpResponse.IsSuccessStatusCode)
             {

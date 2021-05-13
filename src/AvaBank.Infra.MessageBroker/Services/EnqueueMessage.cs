@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace AvaBank.Infra.MessageBroker.Services
 {
-    [ServiceBusProducer("AvaBank", "accounttopic")]
+    [ServiceBusProducer("AvaBank", "openbankingtopic")]
     public class EnqueueMessage : ServiceBusProducer<AccountAproval>
     {
         public EnqueueMessage(ILightContextFactory contextFactory,

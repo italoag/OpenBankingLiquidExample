@@ -5,6 +5,6 @@ namespace AvaBank.Domain.Queries
 {
     public class GetAccountQuery : IRequest<Account>
     {
-        public string accountId { get; set; }
+        public string AccountId { get; set; }
     }
 }
